@@ -5,6 +5,7 @@ var confirmNumber
 var confirmUppercase
 var confirmLowercase
 
+
 //Password Variables
 
 const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
@@ -17,6 +18,7 @@ const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
 ).concat(
   arrayFromLowToHigh(123, 126)
 )
+var password
 
 function arrayFromLowToHigh(low, high) {
   const array = []
@@ -52,29 +54,21 @@ function generatePassword() {
     for (let i = 0; i < passwordLength; i++) {
       const characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
       passwordCharacters.push(String.fromCharCode(characterCode))
-
-      //Display password
-      {
-        var ps = password.join("");
-        UserInput(ps);
-        return ps;
-      }
-      
-      function UserInput() {
-        document.getElementById('password').textContent = ps;
-      }}
-      
-
-      // event listener to display password
-      passwordCharacters.innerText = password
-
-      return passwordCharacters.join("")
+    }
+    return(characterCode)
 
 }
 
+      //Display password
+      var passwordText = document.querySelector("#password");
+      function writePassword(characterCode) {
+        if (password.length === 0) {
+          return;
+        }
+         passwordText.value = characterCode;
+      }
 // Assignment Code
 var generateBtn = document.querySelector('#generate');
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
-
