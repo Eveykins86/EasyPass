@@ -11,9 +11,9 @@ Built on provided starter code to develop a secure password generator. This pass
 
 ## Links
 
-GitHub: (https://github.com/Eveykins86/MyAwesomeProfile)
+GitHub: (https://github.com/Eveykins86/EasyPass)
 
-Website: (https://eveykins86.github.io/MyAwesomeProfile/)
+Website: (https://eveykins86.github.io/EasyPass/)
 
 
 ## License
