@@ -7,7 +7,7 @@ Built on provided starter code to develop a secure password generator. This pass
 
 [EasyPass](https://eveykins86.github.io/EasyPass/)
 
-[![name](assets)](https://eveykins86.github.io/EasyPass/)
+[![name](assets/imgs/Screenshot%202023-05-18%20113250.png)](https://eveykins86.github.io/EasyPass/)
 
 ## Links
 
