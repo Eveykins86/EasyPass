@@ -4,7 +4,6 @@ var confirmCharacter;
 var confirmNumber;
 var confirmUppercase;
 var confirmLowercase;
-var userChoices;
 
 //Password Variables
 
@@ -35,7 +34,8 @@ function generatePassword() {
   if (!passwordLength) {
     alert ("You Must Enter a Number");
   } else if (passwordLength < 8 || passwordLength > 128) {
-    passwordLength = parseInt(prompt("You must choose between 8 and 128"));
+    passwordLength = parseInt(alert("You must choose between 8 and 128"));
+    generatePassword()
   } else {
     confirmNumber = confirm("Will this contain numers? (OK = Yes, Cancel = No)");
     confirmCharacter = confirm("Will this contain special characters? (OK = Yes, Cancel = No)");
@@ -44,65 +44,18 @@ function generatePassword() {
   }
 
   let charCodes = [];
-     
     if (confirmLowercase) charCodes = charCodes.concat(LOWERCASE_CHAR_CODES);
     if (confirmUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES);
     if (confirmCharacter) charCodes = charCodes.concat(SYMBOL_CHAR_CODES);
     if (confirmNumber) charCodes = charCodes.concat(NUMBER_CHAR_CODES);
+   //if (confirmNumber) charCodes = charCodes + NUMBER_CHAR_CODES;
+   // Attemted to use without concat but characters do not display
 
     // When no value is selected
     if (!confirmLowercase && !confirmUppercase && !confirmCharacter && !confirmNumber){
       alert ("You Must Select a Value");
       return;
     } 
-
-    // 3 true choices  
-    else if (confirmLowercase && confirmUppercase && confirmCharacter) {
-      userChoices = LOWERCASE_CHAR_CODES.concat(UPPERCASE_CHAR_CODES, SYMBOL_CHAR_CODES);
-    }
-    else if (confirmLowercase && confirmUppercase && confirmCharacter) {
-      userChoices = LOWERCASE_CHAR_CODES.concat(UPPERCASE_CHAR_CODES, SYMBOL_CHAR_CODES);
-    }
-    else if (confirmLowercase && confirmNumber && confirmCharacter) {
-      userChoices = LOWERCASE_CHAR_CODES.concat(NUMBER_CHAR_CODES, SYMBOL_CHAR_CODES);
-    }
-    else if (confirmUppercase && confirmNumber && confirmCharacter) {
-      userChoices = UPPERCASE_CHAR_CODES.concat(NUMBER_CHAR_CODES, SYMBOL_CHAR_CODES);
-    }
-
-    // 2 true choices
-    else if (confirmLowercase && confirmUppercase) {
-      userChoices = LOWERCASE_CHAR_CODES.concat(UPPERCASE_CHAR_CODES);
-    }
-    else if (confirmLowercase && confirmNumber) {
-      userChoices = LOWERCASE_CHAR_CODES.concat(NUMBER_CHAR_CODES);
-    }
-    else if (confirmLowercase && confirmCharacter) {
-      userChoices = LOWERCASE_CHAR_CODES.concat(SYMBOL_CHAR_CODES);
-    }
-    else if (confirmUppercase && confirmNumber) {
-      userChoices = UPPERCASE_CHAR_CODES.concat(NUMBER_CHAR_CODES);
-    }
-    else if (confirmUppercase && confirmCharacter) {
-      userChoices = UPPERCASE_CHAR_CODES.concat(SYMBOL_CHAR_CODES);
-    }
-    else if (confirmNumber && confirmCharacter) {
-      userChoices = NUMBER_CHAR_CODES.concat(SYMBOL_CHAR_CODES);
-    }
-    // 1 true choices
-    else if (confirmLowercase) {
-      userChoices = LOWERCASE_CHAR_CODES;
-    }
-    else if (confirmUppercase) {
-      userChoices = UPPERCASE_CHAR_CODES;
-    }
-    else if (confirmNumber) {
-      userChoices = NUMBER_CHAR_CODES;
-    }
-    else if (confirmCharacter) {
-      userChoices = SYMBOL_CHAR_CODES;
-    };
-
    
     const passwordCharacters = []
     for (let i = 0; i < passwordLength; i++) {
